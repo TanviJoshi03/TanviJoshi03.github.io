@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanvi Ganesh Joshi, Data Scientist | ML Engineer</title>
+  <meta name="description" content="Portfolio of Tanvi Ganesh Joshi, Data Scientist and ML Engineer specialising in LLMs, recommendation systems, and time series forecasting." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #fdf6f0;
+      --bg-soft:   #faeee0;
+      --surface:   #fffaf5;
+      --card:      #fffcf8;
+      --border:    #ecdac6;
+      --accent:    #c96a4b;
+      --accent-dark: #a8543a;
+      --rose:      #d98a86;
+      --sage:      #93a875;
+      --mustard:   #d9a441;
+      --text:      #4a3428;
+      --muted:     #8a7362;
+      --white:     #3d2b1f;
+      --radius:    18px;
+      --nav-h:     72px;
+      --shadow:    rgba(120, 72, 50, 0.14);
+      --shadow-lg: rgba(120, 72, 50, 0.22);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--rose); color: #fff; }
+
+    /* ── Scrollbar ────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ── Decorative tiny flowers ──────────────────────────────── */
+    .deco-flower { position: absolute; pointer-events: none; z-index: 0; }
+    .deco-flower .petal { opacity: .9; }
+    .deco-flower.rose .petal { fill: #e3b3ad; }
+    .deco-flower.rose .center { fill: var(--mustard); }
+    .deco-flower.sage .petal { fill: #b7c6a0; }
+    .deco-flower.sage .center { fill: var(--accent); }
+    .deco-flower.blush .petal { fill: #f0c9c2; }
+    .deco-flower.blush .center { fill: #e3b567; }
+    .deco-leaf path { stroke: var(--sage); }
+
+    /* ── Nav ──────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      background: rgba(253, 246, 240, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 106, 75, 0.12);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px var(--shadow); }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent-dark);
+      letter-spacing: -0.5px;
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .btn-resume {
+      border: 1px solid var(--accent);
+      color: var(--accent-dark);
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      text-transform: none;
+      letter-spacing: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links .btn-resume:hover { background: rgba(201,106,75,0.1); }
+
+    /* ── Sections ─────────────────────────────────────────────── */
+    section {
+      padding: 6rem clamp(1.5rem, 8vw, 10rem);
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-label {
+      font-family: 'Caveat', cursive;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.2rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 240px;
+    }
+    .title-flower { width: 22px; height: 22px; flex-shrink: 0; }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding-top: calc(var(--nav-h) + 2rem);
+      max-width: 900px;
+      padding-left: clamp(1.5rem, 8vw, 10rem);
+      padding-right: clamp(1.5rem, 5vw, 4rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-greeting {
+      font-family: 'Caveat', cursive;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+      opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 700;
+      background: linear-gradient(100deg, var(--accent-dark) 20%, var(--rose) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
+      opacity: 0; animation: fadeUp 0.6s 0.35s forwards;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3.2vw, 2.3rem);
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      opacity: 0; animation: fadeUp 0.6s 0.5s forwards;
+    }
+    .hero-title span { color: var(--sage); font-style: italic; }
+    .hero-desc {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.6s 0.65s forwards;
+    }
+    .hero-desc strong { color: var(--text); }
+    .hero-cta {
+      display: flex; gap: 1.2rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.6s 0.8s forwards;
+    }
+    .btn {
+      padding: 0.75rem 1.8rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary {
+      border: 1px solid var(--accent);
+      color: #fff;
+      background: linear-gradient(100deg, var(--accent) 0%, var(--accent-dark) 100%);
+      box-shadow: 0 8px 20px rgba(201,106,75,0.28);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(201,106,75,0.35); }
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent-dark); transform: translateY(-2px); }
+
+    /* ── Social sidebar ───────────────────────────────────────── */
+    .social-sidebar {
+      position: fixed;
+      bottom: 0; left: clamp(1rem, 3vw, 2.5rem);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1.2rem;
+      z-index: 50;
+    }
+    .social-sidebar a {
+      color: var(--muted);
+      transition: color 0.2s, transform 0.2s;
+      display: flex;
+    }
+    .social-sidebar a:hover { color: var(--accent); transform: translateY(-3px); }
+    .social-sidebar::after {
+      content: '';
+      width: 1px; height: 90px;
+      background: var(--border);
+    }
+    .social-sidebar svg { width: 20px; height: 20px; }
+
+    /* ── About ────────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+    .about-text p strong { color: var(--text); }
+    .about-text a { color: var(--accent-dark); border-bottom: 1px solid transparent; }
+    .about-text a:hover { border-bottom-color: var(--accent); }
+    .skills-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1rem;
+      margin-top: 1.5rem;
+    }
+    .skills-list li {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      list-style: none;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .skills-list li::before { content: '❀'; color: var(--rose); font-size: 0.85rem; }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-box {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 42% 58% 63% 37% / 45% 40% 60% 55%;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 20px 45px var(--shadow-lg);
+      transform: rotate(-2deg);
+      transition: transform 0.35s, border-radius 0.35s;
+    }
+    .about-img-box img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-img-wrap:hover .about-img-box {
+      transform: rotate(0deg);
+      border-radius: 50%;
+    }
+    .about-img-border {
+      position: absolute;
+      inset: -8px 8px 8px -8px;
+      border: 2px dashed var(--rose);
+      border-radius: 42% 58% 63% 37% / 45% 40% 60% 55%;
+      z-index: 0;
+      transition: transform 0.3s;
+    }
+    .about-img-wrap:hover .about-img-border { transform: translate(4px, -4px); }
+    .about-badge {
+      position: absolute;
+      bottom: -14px; right: 6px;
+      width: 44px; height: 44px;
+      z-index: 2;
+    }
+
+    /* ── Gallery ──────────────────────────────────────────────── */
+    .gallery-intro {
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2.2rem 1.8rem;
+    }
+    .polaroid {
+      background: var(--card);
+      padding: 0.7rem 0.7rem 1.1rem;
+      border-radius: 6px;
+      box-shadow: 0 14px 30px var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .polaroid.visible { opacity: 1; }
+    .polaroid:nth-child(1) { transform: rotate(-3deg); }
+    .polaroid:nth-child(2) { transform: rotate(2.5deg); }
+    .polaroid:nth-child(3) { transform: rotate(-2deg); }
+    .polaroid:nth-child(4) { transform: rotate(3deg); }
+    .polaroid:nth-child(5) { transform: rotate(-2.5deg); }
+    .polaroid:nth-child(6) { transform: rotate(2deg); }
+    .polaroid.visible:nth-child(1) { transform: rotate(-3deg); }
+    .polaroid.visible:nth-child(2) { transform: rotate(2.5deg); }
+    .polaroid.visible:nth-child(3) { transform: rotate(-2deg); }
+    .polaroid.visible:nth-child(4) { transform: rotate(3deg); }
+    .polaroid.visible:nth-child(5) { transform: rotate(-2.5deg); }
+    .polaroid.visible:nth-child(6) { transform: rotate(2deg); }
+    .polaroid:hover {
+      transform: rotate(0deg) translateY(-6px) scale(1.03);
+      box-shadow: 0 22px 40px var(--shadow-lg);
+      z-index: 2;
+    }
+    .polaroid-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 3px;
+      background: var(--bg-soft);
+    }
+    .polaroid-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .polaroid-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      margin-top: 0.7rem;
+    }
+
+    /* ── Projects ─────────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.4rem;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px var(--shadow-lg);
+      border-color: rgba(201,106,75,0.35);
+    }
+    .card-banner {
+      height: 6px;
+    }
+    .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .card-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .card-links { display: flex; gap: 0.8rem; }
+    .card-links a {
+      color: var(--muted);
+      transition: color 0.2s;
+      display: flex;
+    }
+    .card-links a:hover { color: var(--accent); }
+    .card-links svg { width: 18px; height: 18px; }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .contributor-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--sage);
+      border: 1px solid var(--sage);
+      border-radius: 4px;
+      padding: 1px 6px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+    .card-desc strong { color: var(--text); }
+    .card-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: auto;
+    }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent-dark);
+      background: rgba(201,106,75,0.07);
+      border: 1px solid rgba(201,106,75,0.22);
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+
+    /* ── Featured project (full-width) ───────────────────────── */
+    .project-featured {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.4rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .project-featured:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px var(--shadow-lg);
+      border-color: rgba(217,138,134,0.5);
+    }
+    .featured-left {}
+    .featured-label {
+      font-family: 'Caveat', cursive;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+    .featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .featured-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+    .featured-right {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem;
+    }
+    .featured-icon { font-size: 3.5rem; }
+    .featured-links { display: flex; gap: 0.8rem; }
+    .featured-links a {
+      color: var(--muted); transition: color 0.2s;
+    }
+    .featured-links a:hover { color: var(--accent); }
+
+    /* ── Contact ──────────────────────────────────────────────── */
+    #contact { text-align: center; padding-bottom: 8rem; }
+    .contact-sub {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .contact-links {
+      display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent-dark); }
+
+    /* ── Animations ───────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-wrap { display: none; }
+      .social-sidebar { display: none; }
+      .project-featured { grid-template-columns: 1fr; }
+      .featured-right { align-items: flex-start; flex-direction: row; }
+      .nav-links { gap: 1.2rem; }
+      .nav-links a:not(.btn-resume) { display: none; }
+      .deco-flower { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Nav ───────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <svg width="18" height="18" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+        <ellipse class="petal" rx="8" ry="13" transform="rotate(0) translate(0,-13)" fill="#e3b3ad"/>
+        <ellipse class="petal" rx="8" ry="13" transform="rotate(72) translate(0,-13)" fill="#e3b3ad"/>
+        <ellipse class="petal" rx="8" ry="13" transform="rotate(144) translate(0,-13)" fill="#e3b3ad"/>
+        <ellipse class="petal" rx="8" ry="13" transform="rotate(216) translate(0,-13)" fill="#e3b3ad"/>
+        <ellipse class="petal" rx="8" ry="13" transform="rotate(288) translate(0,-13)" fill="#e3b3ad"/>
+        <circle r="7" fill="#d9a441"/>
+      </g></svg>
+      TGJ<span style="color:var(--muted)">.</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank" class="btn-resume">Resume ↗</a>
+    </div>
+  </nav>
+
+  <!-- ── Social sidebar ────────────────────────────────────────── -->
+  <div class="social-sidebar">
+    <a href="https://github.com/TanviJoshi03" target="_blank" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/tanvi-ganesh-joshi-165116221" target="_blank" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:tanvij2k2@gmail.com" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+  </div>
+
+  <!-- ── Hero ──────────────────────────────────────────────────── -->
+  <section id="hero">
+    <svg class="deco-flower rose" style="width:34px;height:34px;top:14%;right:8%;transform:rotate(12deg);" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+      <circle class="center" r="7"/>
+    </g></svg>
+    <svg class="deco-flower sage" style="width:22px;height:22px;bottom:18%;right:18%;transform:rotate(-20deg);" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+      <circle class="center" r="7"/>
+    </g></svg>
+    <p class="hero-greeting">Hi, my name is</p>
+    <h1 class="hero-name">Tanvi Ganesh Joshi.</h1>
+    <h2 class="hero-title">Data Scientist <span>&</span> ML Engineer.</h2>
+    <p class="hero-desc">
+      I build <strong>production-grade ML systems</strong>, from LLM-powered multi-agent simulators to
+      hierarchical forecasting engines and neural recommendation pipelines. Currently studying at
+      <strong>UC San Diego</strong>, focused on applied machine learning, NLP, and business analytics.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+      <a href="resume.pdf" target="_blank" class="btn btn-secondary">Download Resume ↗</a>
+    </div>
+  </section>
+
+  <!-- ── About ─────────────────────────────────────────────────── -->
+  <section id="about">
+    <p class="section-label">a little about me</p>
+    <h2 class="section-title fade-in">
+      <svg class="title-flower" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+        <ellipse fill="#e3b3ad" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+        <ellipse fill="#e3b3ad" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+        <ellipse fill="#e3b3ad" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+        <ellipse fill="#e3b3ad" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+        <ellipse fill="#e3b3ad" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+        <circle fill="#d9a441" r="7"/>
+      </g></svg>
+      About Me
+    </h2>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>
+          I'm a Data Scientist and ML Engineer who cares about the part after the model is built, does it
+          actually change a decision? Does it hold up in production? Can someone who isn't me understand why it worked?
+        </p>
+        <p>
+          I did my undergrad at <strong>IIT Bombay</strong> before moving to UC San Diego for my Master's.
+          Along the way I've worked as an Advanced Analytics & ML Intern at <strong>BeOne Medicines</strong>,
+          building HCP scoring pipelines and KOL influence networks over biomedical data, and as a Data
+          Scientist Intern at <strong>American Express</strong>, building propensity models over millions of
+          cardmember records.
+        </p>
+        <p>
+          My background spans both the technical and the business side: I've worked on targeting and segmentation
+          problems in commercial analytics, built <strong>recommendation and ranking systems</strong>, and explored
+          <strong>LLM-based multi-agent setups</strong>. Across all of it, the through-line is the same, get the
+          methodology right, make the output interpretable, and tie it back to something that matters.
+        </p>
+        <p>
+          I'm drawn to problems where the data is messy, the stakes are real, and the answer isn't just a number
+          on a leaderboard.
+        </p>
+        <p>Here are some technologies I work with frequently:</p>
+        <ul class="skills-list">
+          <li>Python</li>
+          <li>PyTorch</li>
+          <li>scikit-learn</li>
+          <li>FAISS</li>
+          <li>LangChain / RAG</li>
+          <li>statsmodels</li>
+          <li>pandas / numpy</li>
+          <li>Prophet</li>
+          <li>XGBoost</li>
+          <li>SHAP</li>
+          <li>SQL</li>
+          <li>Hugging Face</li>
+        </ul>
+      </div>
+      <div class="about-img-wrap fade-in">
+        <div class="about-img-box"><img src="images/about.jpg" alt="Tanvi Ganesh Joshi smiling" loading="lazy" /></div>
+        <div class="about-img-border"></div>
+        <svg class="about-badge deco-flower blush" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+          <ellipse class="petal" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+          <ellipse class="petal" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+          <ellipse class="petal" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+          <ellipse class="petal" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+          <ellipse class="petal" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+          <circle class="center" r="7"/>
+        </g></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Gallery ───────────────────────────────────────────────── -->
+  <section id="gallery">
+    <svg class="deco-flower sage" style="width:24px;height:24px;top:2%;left:2%;transform:rotate(-10deg);" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+      <circle class="center" r="7"/>
+    </g></svg>
+    <p class="section-label">outside the notebook</p>
+    <h2 class="section-title fade-in">
+      <svg class="title-flower" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+        <ellipse fill="#b7c6a0" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+        <ellipse fill="#b7c6a0" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+        <ellipse fill="#b7c6a0" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+        <ellipse fill="#b7c6a0" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+        <ellipse fill="#b7c6a0" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+        <circle fill="#c96a4b" r="7"/>
+      </g></svg>
+      Beyond the Code
+    </h2>
+    <p class="gallery-intro fade-in">
+      When I'm not training models or untangling a pipeline, I'm usually somewhere with a view,
+      chasing sunsets, hiking trails, and celebrating the milestones along the way.
+    </p>
+    <div class="gallery-grid">
+      <figure class="polaroid">
+        <div class="polaroid-img-wrap"><img src="images/gallery-garden.jpg" alt="Tanvi at Garden of the Gods, Colorado" loading="lazy" /></div>
+        <figcaption class="polaroid-caption">Garden of the Gods, CO</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <div class="polaroid-img-wrap"><img src="images/gallery-bryce.jpg" alt="Tanvi overlooking Bryce Canyon, Utah" loading="lazy" /></div>
+        <figcaption class="polaroid-caption">Bryce Canyon, UT</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <div class="polaroid-img-wrap"><img src="images/gallery-tahoe.jpg" alt="Tanvi at Emerald Bay, Lake Tahoe" loading="lazy" /></div>
+        <figcaption class="polaroid-caption">Emerald Bay, Tahoe</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <div class="polaroid-img-wrap"><img src="images/gallery-grad.jpg" alt="Tanvi on graduation day at UC San Diego" loading="lazy" /></div>
+        <figcaption class="polaroid-caption">Graduation day, UCSD</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <div class="polaroid-img-wrap"><img src="images/gallery-inari.jpg" alt="Tanvi at Fushimi Inari Shrine, Kyoto" loading="lazy" /></div>
+        <figcaption class="polaroid-caption">Fushimi Inari, Kyoto</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <div class="polaroid-img-wrap"><img src="images/gallery-bigbear.jpg" alt="Tanvi by the lake in Big Bear, California" loading="lazy" /></div>
+        <figcaption class="polaroid-caption">Big Bear Lake, CA</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── Projects ──────────────────────────────────────────────── -->
+  <section id="projects" style="max-width:1100px;">
+    <p class="section-label">what I've built</p>
+    <h2 class="section-title fade-in">
+      <svg class="title-flower" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+        <circle fill="#a8543a" r="7"/>
+      </g></svg>
+      Things I've Built
+    </h2>
+
+    <!-- Featured: LLM Avalon Simulator -->
+    <div class="project-featured fade-in">
+      <div class="featured-left">
+        <p class="featured-label">Featured Project</p>
+        <h3 class="featured-title">
+          LLM Avalon Simulator
+        </h3>
+        <p class="featured-desc">
+          A multi-agent LLM simulator for <em>The Resistance: Avalon</em>, studying how language-model agents
+          reason under hidden information, deception, and partial observability. Each agent receives a private role,
+          participates in discussion, proposes teams, votes, and performs endgame assassination, all driven by LLMs.
+          A rigorous testbed for emergent deceptive reasoning in language models.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Python</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Multi-Agent</span>
+          <span class="tag">Game Theory</span>
+          <span class="tag">Deception</span>
+        </div>
+      </div>
+      <div class="featured-right">
+        <div class="featured-icon">🎭</div>
+        <div class="featured-links">
+          <a href="https://github.com/sarac02/llm-avalon-simulator" target="_blank" aria-label="GitHub">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project grid -->
+    <div class="projects-grid">
+
+      <!-- Two-Tower Rec System -->
+      <div class="project-card fade-in">
+        <div class="card-banner" style="background: linear-gradient(90deg, #d98a86, #c96a4b);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">🏗️</span>
+            <div class="card-links">
+              <a href="https://github.com/TanviJoshi03/two-tower-recommendation-system" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">Two-Tower Neural Recommendation System</h3>
+          <p class="card-desc">
+            Production-grade retrieval + ranking pipeline on MovieLens 1M, implementing the architecture
+            used at YouTube and Pinterest. <strong>NDCG@10 +110%</strong> and <strong>MRR +85%</strong>
+            with retrieve-then-rank over retrieval alone. FAISS ANN search for scalable candidate retrieval.
+          </p>
+          <div class="card-tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">FAISS</span>
+            <span class="tag">RecSys</span>
+            <span class="tag">Neural IR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Biomedical RAG -->
+      <div class="project-card fade-in">
+        <div class="card-banner" style="background: linear-gradient(90deg, #93a875, #b9c99e);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">🔬</span>
+            <div class="card-links">
+              <a href="https://github.com/TanviJoshi03/biomedical-rag-pipeline" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">Biomedical RAG Pipeline with Retrieval Evaluation</h3>
+          <p class="card-desc">
+            End-to-end Retrieval-Augmented Generation over <strong>492 NSCLC PubMed abstracts</strong>.
+            Compares chunking and retrieval strategies across Precision@5, MRR, and Faithfulness,
+            treating evaluation as a first-class concern rather than an afterthought.
+          </p>
+          <div class="card-tags">
+            <span class="tag">RAG</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Evaluation</span>
+            <span class="tag">PubMed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hierarchical Time Series -->
+      <div class="project-card fade-in">
+        <div class="card-banner" style="background: linear-gradient(90deg, #d9a441, #e8bd6d);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">📈</span>
+            <div class="card-links">
+              <a href="https://github.com/TanviJoshi03/hierarchial-time-series-forecasting" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">Hierarchical Time Series Forecasting</h3>
+          <p class="card-desc">
+            Forecasting retail sales across a 4-level hierarchy (Total → Department → Category → 30 Products).
+            Compares ARIMA, Prophet, LSTM. Implements <strong>MinTrace-WLS reconciliation</strong>
+            (Wickramasuriya et al. 2019), recovering LSTM accuracy by 3.5% over unreconciled baselines
+            and 31% over OLS MinTrace.
+          </p>
+          <div class="card-tags">
+            <span class="tag">statsmodels</span>
+            <span class="tag">Prophet</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Time Series</span>
+            <span class="tag">pandas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona Drift -->
+      <div class="project-card fade-in">
+        <div class="card-banner" style="background: linear-gradient(90deg, #c96a4b, #d9a441);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">🌐</span>
+            <div class="card-links">
+              <a href="https://github.com/TanviJoshi03/Persona-Drift-in-Online-Communities" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">Persona Drift in Online Communities</h3>
+          <p class="card-desc">
+            Unsupervised detection of persona drift in Reddit communities using a
+            <strong>Multi-View Drift Detector</strong>, fusing neural text embeddings with distributional
+            baselines via weak supervision. No manual labels required. Built at UC San Diego (CSE 261).
+          </p>
+          <div class="card-tags">
+            <span class="tag">NLP</span>
+            <span class="tag">Reddit API</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Weak Supervision</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Churn Prediction -->
+      <div class="project-card fade-in">
+        <div class="card-banner" style="background: linear-gradient(90deg, #8a7362, #b39a86);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">📊</span>
+            <div class="card-links">
+              <a href="https://github.com/TanviJoshi03/churn-prediction" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">Customer Churn Prediction with Causal Attribution</h3>
+          <p class="card-desc">
+            Goes beyond prediction: explains <em>why</em> customers churn using SHAP-based causal attribution
+            and K-Means cohort segmentation. XGBoost classifier with <strong>AUC-ROC 0.849</strong> on
+            IBM Telco dataset. Output: a targeted retention playbook.
+          </p>
+          <div class="card-tags">
+            <span class="tag">XGBoost</span>
+            <span class="tag">SHAP</span>
+            <span class="tag">K-Means</span>
+            <span class="tag">sklearn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CS726 GAN/VAE -->
+      <div class="project-card fade-in">
+        <div class="card-banner" style="background: linear-gradient(90deg, #a8543a, #d98a86);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">⚡</span>
+            <div class="card-links">
+              <a href="https://github.com/TanviJoshi03/CS726---AD-on-time-series-data-using-GANs-and-VAEs" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">Anomaly Detection on Time Series using GANs & VAEs</h3>
+          <p class="card-desc">
+            Generative model approaches to anomaly detection on multivariate time series data.
+            Implements and compares GAN-based and VAE-based anomaly scoring methods,
+            deep generative modelling applied to an unsupervised detection problem.
+          </p>
+          <div class="card-tags">
+            <span class="tag">GANs</span>
+            <span class="tag">VAEs</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Anomaly Detection</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Contact ───────────────────────────────────────────────── -->
+  <section id="contact">
+    <svg class="deco-flower rose" style="width:26px;height:26px;top:6%;left:12%;transform:rotate(-8deg);" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+      <circle class="center" r="7"/>
+    </g></svg>
+    <svg class="deco-flower sage" style="width:20px;height:20px;top:8%;right:14%;transform:rotate(16deg);" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+      <ellipse class="petal" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+      <circle class="center" r="7"/>
+    </g></svg>
+    <p class="section-label fade-in">what's next</p>
+    <h2 class="section-title fade-in" style="justify-content:center;">
+      <span>Get In Touch</span>
+    </h2>
+    <p class="contact-sub fade-in">
+      I'm currently open to new opportunities, full-time roles, research collaborations,
+      or interesting projects. Whether you have a question or just want to say hi,
+      my inbox is always open.
+    </p>
+    <div class="contact-links fade-in">
+      <a href="mailto:tanvij2k2@gmail.com" class="btn btn-primary">Say Hello ✉</a>
+      <a href="https://www.linkedin.com/in/tanvi-ganesh-joshi-165116221" target="_blank" class="btn btn-secondary">LinkedIn ↗</a>
+      <a href="https://github.com/TanviJoshi03" target="_blank" class="btn btn-secondary">GitHub ↗</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer>
+    <p>Designed &amp; Built by <a href="https://github.com/TanviJoshi03">Tanvi Ganesh Joshi</a></p>
+  </footer>
+
+  <!-- ── JS ────────────────────────────────────────────────────── -->
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Intersection observer for fade-in
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Polaroid reveal
+    const polaroidObserver = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); polaroidObserver.unobserve(e.target); }
+      }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.polaroid').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.1}s`;
+      polaroidObserver.observe(el);
+    });
+
+    // Stagger project cards
+    document.querySelectorAll('.project-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.08}s`;
+    });
+  </script>
+
+</body>
+</html>
