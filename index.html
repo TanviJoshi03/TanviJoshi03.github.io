@@ -31,7 +31,7 @@
       --shadow:    rgba(120, 72, 50, 0.14);
       --shadow-lg: rgba(120, 72, 50, 0.22);
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 17px; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
@@ -392,13 +392,8 @@
       font-size: 2rem;
       line-height: 1;
     }
-    .card-links { display: flex; gap: 0.8rem; }
-    .card-links a {
-      color: var(--muted);
-      transition: color 0.2s;
-      display: flex;
-    }
-    .card-links a:hover { color: var(--accent); }
+    .card-links { display: flex; gap: 0.8rem; color: var(--muted); transition: color 0.2s; }
+    .project-card:hover .card-links { color: var(--accent); }
     .card-links svg { width: 18px; height: 18px; }
     .card-title {
       font-size: 1.05rem;
@@ -487,11 +482,8 @@
       display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem;
     }
     .featured-icon { font-size: 3.5rem; }
-    .featured-links { display: flex; gap: 0.8rem; }
-    .featured-links a {
-      color: var(--muted); transition: color 0.2s;
-    }
-    .featured-links a:hover { color: var(--accent); }
+    .featured-links { display: flex; gap: 0.8rem; color: var(--muted); transition: color 0.2s; }
+    .project-featured:hover .featured-links { color: var(--accent); }
 
     /* ── Contact ──────────────────────────────────────────────── */
     #contact { text-align: center; padding-bottom: 8rem; }
@@ -560,8 +552,8 @@
     </div>
     <div class="nav-links">
       <a href="#about">About</a>
-      <a href="#gallery">Gallery</a>
       <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
       <a href="resume.pdf" target="_blank" class="btn-resume">Resume ↗</a>
     </div>
@@ -680,6 +672,209 @@
     </div>
   </section>
 
+  <!-- ── Projects ──────────────────────────────────────────────── -->
+  <section id="projects" style="max-width:1100px;">
+    <p class="section-label">what I've built</p>
+    <h2 class="section-title fade-in">
+      <svg class="title-flower" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
+        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
+        <circle fill="#a8543a" r="7"/>
+      </g></svg>
+      Things I've Built
+    </h2>
+
+    <!-- Featured: LLM Avalon Simulator -->
+    <a class="project-featured fade-in" href="https://github.com/sarac02/llm-avalon-simulator" target="_blank" rel="noopener" aria-label="View LLM Avalon Simulator on GitHub">
+      <div class="featured-left">
+        <p class="featured-label">Featured Project</p>
+        <h3 class="featured-title">
+          LLM Avalon Simulator
+        </h3>
+        <p class="featured-desc">
+          A multi-agent LLM simulator for <em>The Resistance: Avalon</em>, studying how language-model agents
+          reason under hidden information, deception, and partial observability. Each agent receives a private role,
+          participates in discussion, proposes teams, votes, and performs endgame assassination, all driven by LLMs.
+          A rigorous testbed for emergent deceptive reasoning in language models.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Python</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Multi-Agent</span>
+          <span class="tag">Game Theory</span>
+          <span class="tag">Deception</span>
+        </div>
+      </div>
+      <div class="featured-right">
+        <div class="featured-icon">🎭</div>
+        <div class="featured-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project grid -->
+    <div class="projects-grid">
+
+      <!-- Two-Tower Rec System -->
+      <a class="project-card fade-in" href="https://github.com/TanviJoshi03/two-tower-recommendation-system" target="_blank" rel="noopener" aria-label="View Two-Tower Neural Recommendation System on GitHub">
+        <div class="card-banner" style="background: linear-gradient(90deg, #d98a86, #c96a4b);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">🏗️</span>
+            <div class="card-links">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+          </div>
+          <h3 class="card-title">Two-Tower Neural Recommendation System</h3>
+          <p class="card-desc">
+            Production-grade retrieval + ranking pipeline on MovieLens 1M, implementing the architecture
+            used at YouTube and Pinterest. <strong>NDCG@10 +110%</strong> and <strong>MRR +85%</strong>
+            with retrieve-then-rank over retrieval alone. FAISS ANN search for scalable candidate retrieval.
+          </p>
+          <div class="card-tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">FAISS</span>
+            <span class="tag">RecSys</span>
+            <span class="tag">Neural IR</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Biomedical RAG -->
+      <a class="project-card fade-in" href="https://github.com/TanviJoshi03/biomedical-rag-pipeline" target="_blank" rel="noopener" aria-label="View Biomedical RAG Pipeline on GitHub">
+        <div class="card-banner" style="background: linear-gradient(90deg, #93a875, #b9c99e);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">🔬</span>
+            <div class="card-links">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+          </div>
+          <h3 class="card-title">Biomedical RAG Pipeline with Retrieval Evaluation</h3>
+          <p class="card-desc">
+            End-to-end Retrieval-Augmented Generation over <strong>492 NSCLC PubMed abstracts</strong>.
+            Compares chunking and retrieval strategies across Precision@5, MRR, and Faithfulness,
+            treating evaluation as a first-class concern rather than an afterthought.
+          </p>
+          <div class="card-tags">
+            <span class="tag">RAG</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Evaluation</span>
+            <span class="tag">PubMed</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Hierarchical Time Series -->
+      <a class="project-card fade-in" href="https://github.com/TanviJoshi03/hierarchial-time-series-forecasting" target="_blank" rel="noopener" aria-label="View Hierarchical Time Series Forecasting on GitHub">
+        <div class="card-banner" style="background: linear-gradient(90deg, #d9a441, #e8bd6d);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">📈</span>
+            <div class="card-links">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+          </div>
+          <h3 class="card-title">Hierarchical Time Series Forecasting</h3>
+          <p class="card-desc">
+            Forecasting retail sales across a 4-level hierarchy (Total → Department → Category → 30 Products).
+            Compares ARIMA, Prophet, LSTM. Implements <strong>MinTrace-WLS reconciliation</strong>
+            (Wickramasuriya et al. 2019), recovering LSTM accuracy by 3.5% over unreconciled baselines
+            and 31% over OLS MinTrace.
+          </p>
+          <div class="card-tags">
+            <span class="tag">statsmodels</span>
+            <span class="tag">Prophet</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Time Series</span>
+            <span class="tag">pandas</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Persona Drift -->
+      <a class="project-card fade-in" href="https://github.com/TanviJoshi03/Persona-Drift-in-Online-Communities" target="_blank" rel="noopener" aria-label="View Persona Drift in Online Communities on GitHub">
+        <div class="card-banner" style="background: linear-gradient(90deg, #c96a4b, #d9a441);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">🌐</span>
+            <div class="card-links">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+          </div>
+          <h3 class="card-title">Persona Drift in Online Communities</h3>
+          <p class="card-desc">
+            Unsupervised detection of persona drift in Reddit communities using a
+            <strong>Multi-View Drift Detector</strong>, fusing neural text embeddings with distributional
+            baselines via weak supervision. No manual labels required. Built at UC San Diego (CSE 261).
+          </p>
+          <div class="card-tags">
+            <span class="tag">NLP</span>
+            <span class="tag">Reddit API</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Weak Supervision</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Churn Prediction -->
+      <a class="project-card fade-in" href="https://github.com/TanviJoshi03/churn-prediction" target="_blank" rel="noopener" aria-label="View Customer Churn Prediction on GitHub">
+        <div class="card-banner" style="background: linear-gradient(90deg, #8a7362, #b39a86);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">📊</span>
+            <div class="card-links">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+          </div>
+          <h3 class="card-title">Customer Churn Prediction with Causal Attribution</h3>
+          <p class="card-desc">
+            Goes beyond prediction: explains <em>why</em> customers churn using SHAP-based causal attribution
+            and K-Means cohort segmentation. XGBoost classifier with <strong>AUC-ROC 0.849</strong> on
+            IBM Telco dataset. Output: a targeted retention playbook.
+          </p>
+          <div class="card-tags">
+            <span class="tag">XGBoost</span>
+            <span class="tag">SHAP</span>
+            <span class="tag">K-Means</span>
+            <span class="tag">sklearn</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- CS726 GAN/VAE -->
+      <a class="project-card fade-in" href="https://github.com/TanviJoshi03/CS726---AD-on-time-series-data-using-GANs-and-VAEs" target="_blank" rel="noopener" aria-label="View Anomaly Detection on Time Series using GANs and VAEs on GitHub">
+        <div class="card-banner" style="background: linear-gradient(90deg, #a8543a, #d98a86);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <span class="card-icon">⚡</span>
+            <div class="card-links">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+          </div>
+          <h3 class="card-title">Anomaly Detection on Time Series using GANs & VAEs</h3>
+          <p class="card-desc">
+            Generative model approaches to anomaly detection on multivariate time series data.
+            Implements and compares GAN-based and VAE-based anomaly scoring methods,
+            deep generative modelling applied to an unsupervised detection problem.
+          </p>
+          <div class="card-tags">
+            <span class="tag">GANs</span>
+            <span class="tag">VAEs</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Anomaly Detection</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
   <!-- ── Gallery ───────────────────────────────────────────────── -->
   <section id="gallery">
     <svg class="deco-flower sage" style="width:24px;height:24px;top:2%;left:2%;transform:rotate(-10deg);" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
@@ -731,223 +926,6 @@
         <div class="polaroid-img-wrap"><img src="images/gallery-bigbear.jpg" alt="Tanvi by the lake in Big Bear, California" loading="lazy" /></div>
         <figcaption class="polaroid-caption">Big Bear Lake, CA</figcaption>
       </figure>
-    </div>
-  </section>
-
-  <!-- ── Projects ──────────────────────────────────────────────── -->
-  <section id="projects" style="max-width:1100px;">
-    <p class="section-label">what I've built</p>
-    <h2 class="section-title fade-in">
-      <svg class="title-flower" viewBox="0 0 60 60" aria-hidden="true"><g transform="translate(30,30)">
-        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(0) translate(0,-13)"/>
-        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(72) translate(0,-13)"/>
-        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(144) translate(0,-13)"/>
-        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(216) translate(0,-13)"/>
-        <ellipse fill="#e8bd6d" rx="8" ry="13" transform="rotate(288) translate(0,-13)"/>
-        <circle fill="#a8543a" r="7"/>
-      </g></svg>
-      Things I've Built
-    </h2>
-
-    <!-- Featured: LLM Avalon Simulator -->
-    <div class="project-featured fade-in">
-      <div class="featured-left">
-        <p class="featured-label">Featured Project</p>
-        <h3 class="featured-title">
-          LLM Avalon Simulator
-        </h3>
-        <p class="featured-desc">
-          A multi-agent LLM simulator for <em>The Resistance: Avalon</em>, studying how language-model agents
-          reason under hidden information, deception, and partial observability. Each agent receives a private role,
-          participates in discussion, proposes teams, votes, and performs endgame assassination, all driven by LLMs.
-          A rigorous testbed for emergent deceptive reasoning in language models.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Python</span>
-          <span class="tag">LLMs</span>
-          <span class="tag">Multi-Agent</span>
-          <span class="tag">Game Theory</span>
-          <span class="tag">Deception</span>
-        </div>
-      </div>
-      <div class="featured-right">
-        <div class="featured-icon">🎭</div>
-        <div class="featured-links">
-          <a href="https://github.com/sarac02/llm-avalon-simulator" target="_blank" aria-label="GitHub">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project grid -->
-    <div class="projects-grid">
-
-      <!-- Two-Tower Rec System -->
-      <div class="project-card fade-in">
-        <div class="card-banner" style="background: linear-gradient(90deg, #d98a86, #c96a4b);"></div>
-        <div class="card-body">
-          <div class="card-header">
-            <span class="card-icon">🏗️</span>
-            <div class="card-links">
-              <a href="https://github.com/TanviJoshi03/two-tower-recommendation-system" target="_blank" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="card-title">Two-Tower Neural Recommendation System</h3>
-          <p class="card-desc">
-            Production-grade retrieval + ranking pipeline on MovieLens 1M, implementing the architecture
-            used at YouTube and Pinterest. <strong>NDCG@10 +110%</strong> and <strong>MRR +85%</strong>
-            with retrieve-then-rank over retrieval alone. FAISS ANN search for scalable candidate retrieval.
-          </p>
-          <div class="card-tags">
-            <span class="tag">PyTorch</span>
-            <span class="tag">FAISS</span>
-            <span class="tag">RecSys</span>
-            <span class="tag">Neural IR</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Biomedical RAG -->
-      <div class="project-card fade-in">
-        <div class="card-banner" style="background: linear-gradient(90deg, #93a875, #b9c99e);"></div>
-        <div class="card-body">
-          <div class="card-header">
-            <span class="card-icon">🔬</span>
-            <div class="card-links">
-              <a href="https://github.com/TanviJoshi03/biomedical-rag-pipeline" target="_blank" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="card-title">Biomedical RAG Pipeline with Retrieval Evaluation</h3>
-          <p class="card-desc">
-            End-to-end Retrieval-Augmented Generation over <strong>492 NSCLC PubMed abstracts</strong>.
-            Compares chunking and retrieval strategies across Precision@5, MRR, and Faithfulness,
-            treating evaluation as a first-class concern rather than an afterthought.
-          </p>
-          <div class="card-tags">
-            <span class="tag">RAG</span>
-            <span class="tag">LLMs</span>
-            <span class="tag">NLP</span>
-            <span class="tag">Evaluation</span>
-            <span class="tag">PubMed</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hierarchical Time Series -->
-      <div class="project-card fade-in">
-        <div class="card-banner" style="background: linear-gradient(90deg, #d9a441, #e8bd6d);"></div>
-        <div class="card-body">
-          <div class="card-header">
-            <span class="card-icon">📈</span>
-            <div class="card-links">
-              <a href="https://github.com/TanviJoshi03/hierarchial-time-series-forecasting" target="_blank" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="card-title">Hierarchical Time Series Forecasting</h3>
-          <p class="card-desc">
-            Forecasting retail sales across a 4-level hierarchy (Total → Department → Category → 30 Products).
-            Compares ARIMA, Prophet, LSTM. Implements <strong>MinTrace-WLS reconciliation</strong>
-            (Wickramasuriya et al. 2019), recovering LSTM accuracy by 3.5% over unreconciled baselines
-            and 31% over OLS MinTrace.
-          </p>
-          <div class="card-tags">
-            <span class="tag">statsmodels</span>
-            <span class="tag">Prophet</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">Time Series</span>
-            <span class="tag">pandas</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Persona Drift -->
-      <div class="project-card fade-in">
-        <div class="card-banner" style="background: linear-gradient(90deg, #c96a4b, #d9a441);"></div>
-        <div class="card-body">
-          <div class="card-header">
-            <span class="card-icon">🌐</span>
-            <div class="card-links">
-              <a href="https://github.com/TanviJoshi03/Persona-Drift-in-Online-Communities" target="_blank" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="card-title">Persona Drift in Online Communities</h3>
-          <p class="card-desc">
-            Unsupervised detection of persona drift in Reddit communities using a
-            <strong>Multi-View Drift Detector</strong>, fusing neural text embeddings with distributional
-            baselines via weak supervision. No manual labels required. Built at UC San Diego (CSE 261).
-          </p>
-          <div class="card-tags">
-            <span class="tag">NLP</span>
-            <span class="tag">Reddit API</span>
-            <span class="tag">Embeddings</span>
-            <span class="tag">Weak Supervision</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Churn Prediction -->
-      <div class="project-card fade-in">
-        <div class="card-banner" style="background: linear-gradient(90deg, #8a7362, #b39a86);"></div>
-        <div class="card-body">
-          <div class="card-header">
-            <span class="card-icon">📊</span>
-            <div class="card-links">
-              <a href="https://github.com/TanviJoshi03/churn-prediction" target="_blank" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="card-title">Customer Churn Prediction with Causal Attribution</h3>
-          <p class="card-desc">
-            Goes beyond prediction: explains <em>why</em> customers churn using SHAP-based causal attribution
-            and K-Means cohort segmentation. XGBoost classifier with <strong>AUC-ROC 0.849</strong> on
-            IBM Telco dataset. Output: a targeted retention playbook.
-          </p>
-          <div class="card-tags">
-            <span class="tag">XGBoost</span>
-            <span class="tag">SHAP</span>
-            <span class="tag">K-Means</span>
-            <span class="tag">sklearn</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CS726 GAN/VAE -->
-      <div class="project-card fade-in">
-        <div class="card-banner" style="background: linear-gradient(90deg, #a8543a, #d98a86);"></div>
-        <div class="card-body">
-          <div class="card-header">
-            <span class="card-icon">⚡</span>
-            <div class="card-links">
-              <a href="https://github.com/TanviJoshi03/CS726---AD-on-time-series-data-using-GANs-and-VAEs" target="_blank" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="card-title">Anomaly Detection on Time Series using GANs & VAEs</h3>
-          <p class="card-desc">
-            Generative model approaches to anomaly detection on multivariate time series data.
-            Implements and compares GAN-based and VAE-based anomaly scoring methods,
-            deep generative modelling applied to an unsupervised detection problem.
-          </p>
-          <div class="card-tags">
-            <span class="tag">GANs</span>
-            <span class="tag">VAEs</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">Anomaly Detection</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
